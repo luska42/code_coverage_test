@@ -1,6 +1,6 @@
 #================= AVISOS
 # Coloque esse arquivo Makefile e o código fonte main.c ISOLADOS EM UMA PASTA;
-# O alvo "clean" irá DELETAR TUDO que não seja os dois acima.
+# O alvo "clean" irá DELETAR vários tipos de arquivos
 #
 # Instale o "lcov" no seu sistema, caso já não esteja;
 # Execute: "lcov --version" em um terminal para verificar se ele está instalado;
@@ -8,8 +8,6 @@
 
 #================= Variáveis de ambiente
 SHELL := /bin/bash
-
-SOURCE_DIR = $HOME
 
 #================= Alvos
 all: clean coverage
@@ -29,8 +27,10 @@ coverage:
 	@echo -e "\n\n... lcov run ..."
 	@lcov --directory . --capture --output-file main_coverage.info
 	@genhtml main_coverage.info
-	# firefox index.html
+	@# firefox index.html # Para ver o resultado da avaliação de cobertura, abra o arquivo index.html em um navegador
 
 clean:
 	@echo -e "\n\nMAKE ... clean"
-	@find . -type f,d -not \( -name 'Makefile' -or -name 'main.c' \) -delete
+	@# find . -type f,d -not \( -name 'Makefile' -or -name 'main.c' \) -delete # Essa linha remove tudo menos os arquivos "Makefile" e "main.c"; arquivos de config do Git também seriam deletados
+	@rm -f *.png *.out *.css *.html *.gcov *.info *.gcno *gcda
+	@rm -rf code_coverage_test

@@ -5,3 +5,4 @@
 ### https://medium.com/@naveen.maltesh/generating-code-coverage-report-using-gnu-gcov-lcov-ee54a4de3f11
 ### https://www.gnu.org/software/make/manual/make.html#Execution
 ### https://unix.stackexchange.com/questions/521965/error-bin-sh-1-syntax-error-unexpected-in-makefile
+### https://stackoverflow.com/questions/29945791/undefined-reference-to-cmocka-run-group-tests-when-running-sample-cmocka-te

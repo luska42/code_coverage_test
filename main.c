@@ -1,20 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int function1(int arg) {
-    return arg + arg;
+// Cmocka includes
+#include <stdint.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <setjmp.h>
+
+#include "cmocka.h"
+
+/* tests */
+
+void test_do_something_failure(void **state)
+{
+    (void) state; /* unused */
+    //int a = 4;
+    int a = 2;
+
+    assert_int_equal(4, a); // São diferentes
 }
 
-int function2(int arg) {
-    return arg * arg;
+void test_do_something_success(void **state)
+{
+    (void) state; /* unused */
+    int a = 2;
+
+    assert_int_equal(2, a); // São iguais
 }
+
+
+const struct CMUnitTest do_something_tests[] = {
+    cmocka_unit_test(test_do_something_failure),
+    cmocka_unit_test(test_do_something_success),
+};
 
 int main(void) {
-    int value = 10;
-    int result = function1(value);
-
-    printf("\n### Coverage TESTS\n\n");
-    printf("value:\t%d\nresult:\t%d\n", value, result);
-
-    return EXIT_SUCCESS;
+    return cmocka_run_group_tests(do_something_tests, NULL, NULL);
 }

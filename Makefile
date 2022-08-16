@@ -18,7 +18,7 @@ compile:
 
 coverage:
 	@echo -e "\n\nMAKE ... coverage"
-	gcc -Wall -fprofile-arcs -ftest-coverage main.c
+	gcc -Wall -fprofile-arcs -ftest-coverage main.c -l cmocka -L /usr/local/lib
 	@echo -e "\n\n... program output ..."
 	@./a.out
 	@echo -e "\n\n... code coverage ..."
